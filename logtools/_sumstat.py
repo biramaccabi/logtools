@@ -126,8 +126,7 @@ def sumstat_main():
     options, args = sumstat_parse_args()
     stat_dict = sumstat(fh=sys.stdin, *args, **options)
     
-    table = PrettyTable()
-    table.set_field_names([
+    table = PrettyTable([
         "Num. Samples (N)",
         "Num. Values (M)",
         "Min. Value",
@@ -147,7 +146,7 @@ def sumstat_main():
         [stat_dict['min'], stat_dict['max'], stat_dict['avg']] + \
         stat_dict['percentiles']
     )
-    table.printt()
+    print table
 
     S10th, S25th, S40th, S50th, S75th, S90th = stat_dict['cover']
     M = stat_dict['M']
