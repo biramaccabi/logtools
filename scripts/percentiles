@@ -26,7 +26,7 @@ N=1000000
 
 trap "cleanup; exit" SIGTERM EXIT
 
-tail -n $N $* | \
+tail -$N $* | \
 	sort -k1,1n > $TMPFILE
 
 L=`cat $TMPFILE | wc -l`
@@ -42,6 +42,6 @@ do
 	then
 		l=1
 	fi
-	p=`cat $TMPFILE | head -n $l | tail -n1`
+	p=`cat $TMPFILE | head -n $l | tail -1`
 	log "${i}th Percentile (${l}th Sample): $p"
 done
