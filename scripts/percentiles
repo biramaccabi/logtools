@@ -42,6 +42,6 @@ do
 	then
 		l=1
 	fi
-	p=`cat $TMPFILE | head -n $l | tail -1`
+	p=`cat $TMPFILE | head -$l | tail -1`
 	log "${i}th Percentile (${l}th Sample): $p"
 done
