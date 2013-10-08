@@ -22,7 +22,7 @@ then
     error "Could not create temporary file, aborting."
 fi
 
-N=1000000
+N=10000000
 
 trap "cleanup; exit" SIGTERM EXIT
 
