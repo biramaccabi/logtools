@@ -127,7 +127,7 @@ def sumstat_main():
     stat_dict = sumstat(fh=sys.stdin, *args, **options)
     
     table = PrettyTable([
-        "Num. Samples (N)",
+        "Sum. Samples (N)",
         "Num. Values (M)",
         "Min. Value",
         "Max. Value",
