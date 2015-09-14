@@ -71,14 +71,13 @@ def sumstat(fh, delimiter, reverse=False, **kwargs):
     for line in imap(lambda x: x.strip(), fh):
         try:
             count, val = line.split(delimiter)[:2]
-        except ValueError:
-            logging.error("Exception while trying to parse log line: '%s', skipping", line)
-        else:
             count = int(count)
             counts.append(count)
             M += 1
             N += count
-            
+        except ValueError:
+            logging.error("Exception while trying to parse log line: '%s', skipping", line)
+
     if reverse is True:
         logging.info("Reversing row ordering")
         counts.reverse()
